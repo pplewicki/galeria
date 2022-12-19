@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Galeria</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+
+
+</head>
+<body>
+
+    <div class="galeria">
+
+        <ul class="controls">
+            <li class="buttons active" data-filter="Wszystkie">Wszystkie</li>
+            <li class="buttons" data-filter="kwadrat">kwadrat</li>
+            <li class="buttons" data-filter="kolo">kolo</li>
+            <li class="buttons" data-filter="trojkat">trojkat</li>
+            <li class="buttons" data-filter="iks">iks</li>            
+        </ul>
+
+        <div class="image-container">
+            <a href="obraz/1.JPG" class="image kwadrat">
+                <img src="obraz/1.JPG" alt="">
+            </a>
+
+            <a href="obraz/2.JPG" class="image kolo">
+                <img src="obraz/2.jpg" alt="">
+            </a>
+
+            <a href="obraz/3.JPG" class="image trojkat">
+                <img src="obraz/3.JPG" alt="">
+            </a>
+            <a href="obraz/4.JPG" class="image iks">
+                <img src="obraz/4.JPG" alt="">
+            </a>
+            <a href="obraz/5.JPG" class="image kwadrat">
+                <img src="obraz/5.JPG" alt="">
+            </a>
+        </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+
+<script>
+
+$(document).ready(function(){
+    $('.buttons').click(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+
+        var filter = $(this).attr('data-filter')
+
+        if(filter == 'Wszystkie'){
+            $('.image').show(400);
+        }else{
+            $('.image').not('.'+filter).hide(200);
+            $('.image').filter('.'+filter).show(400);
+        }
+        
+    });
+
+    $('.galeria').magnificPopup({
+        delegate:'a',
+        type:'image',
+        gallery:{
+            enabled:true
+
+        }
+    });
+});
+
+</script>
+
+</body>
+</html>
